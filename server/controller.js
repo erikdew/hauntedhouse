@@ -39,7 +39,19 @@ module.exports = {
         id++
         res.status(200).send(creatures);
 
+    },
+
+    delete: (req, res) => {
+        let deleteCreature = req.params.id;
+        // I know my problem is below here
+        creatures.findIndex(creatures => creatures.id !== deleteCreature);
+        // I know my problem is above here
+
+        creatures.splice(creatures, 1);
+        res.status(200).send(creatures);
+
     }
+
 
 
 }

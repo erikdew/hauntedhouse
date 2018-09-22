@@ -12,7 +12,7 @@ app.use(cors());
 //endpoints
 app.get('/creatures', controller.read)
 app.post('/creatures', controller.create)
-// app.delete('/creatures', controller.delete)
+app.delete('/creatures/id', controller.delete)
 
 
 app.listen(3005, () => {

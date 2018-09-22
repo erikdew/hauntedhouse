@@ -33,6 +33,13 @@ class App extends Component {
     })
   }
 
+  removeCreature = (creature) => {
+    console.log('its deleting stuff!')
+    axios.delete(BASE_URL + '/creatures/id', { ...creature }).then(res => {
+      this.setState({ creatures: res.data })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -44,6 +51,7 @@ class App extends Component {
                 <h1>{creature.name}</h1>
                 <img src={creature.image_url} alt="description" />
                 <h3>{creature.scary.level}</h3>
+                <button onClick={this.removeCreature}>Delete</button>
               </div>
 
             )
